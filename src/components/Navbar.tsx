@@ -24,13 +24,13 @@ const Navbar = () => {
 
 
   return (
-    <nav className="p-4 flex items-center justify-between">
+    <nav className="p-4 flex items-center justify-between sticky top-0 bg-background z-10">
      {/* left */}
       <SidebarTrigger/>
       {/* <Button variant="outline" onClick={toggleSidebar}>Custom Button</Button> */}
      {/* right */}
      <div className="flex items-center gap-4">
-     <Link href="/">Dashboard</Link>
+     <Link href="/users/peter">Peter Parker Profile</Link>
      {/* theme menu */}
      <DropdownMenu>
       <DropdownMenuTrigger asChild>

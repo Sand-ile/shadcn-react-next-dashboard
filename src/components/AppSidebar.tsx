@@ -1,8 +1,9 @@
-import { Home, Inbox, Calendar,Search, Settings, User2, ChevronUp, Plus, Projector } from "lucide-react";
-import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarSeparator } from "./ui/sidebar";
+import { Home, Inbox, Calendar,Search, Settings, User2, ChevronUp, Plus, Projector, ChevronDown } from "lucide-react";
+import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarSeparator } from "./ui/sidebar";
 import Link from "next/link";
 import Image from "next/image";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible";
 
 const items = [
   {
@@ -67,6 +68,9 @@ const AppSidebar = () => {
                     <span>{item.title}</span>
                     </Link>
                   </SidebarMenuButton>
+                  {item.title === "Inbox" && (
+                    <SidebarMenuBadge>15</SidebarMenuBadge>
+                  )}
                 </SidebarMenuItem>
               ))}
             </SidebarMenu>
@@ -99,6 +103,88 @@ const AppSidebar = () => {
                       </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
+                </SidebarMenu>
+              </SidebarGroupContent>
+        </SidebarGroup>
+        {/* end of sidebar group */}
+
+         {/* sidebar group */}
+         {/* collapsible */}
+         <Collapsible defaultOpen className="group/collapsible">
+       
+         <SidebarGroup>
+          <SidebarGroupLabel asChild>
+          <CollapsibleTrigger>
+            Collapsible Group
+            <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
+          </CollapsibleTrigger>
+          </SidebarGroupLabel>
+
+              <CollapsibleContent>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link href="#">
+                      <Projector/>
+                      See All Projects
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link href="#">
+                      <Plus/>
+                      Add Projects
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                </SidebarMenu>
+              </SidebarGroupContent>
+              </CollapsibleContent>
+        </SidebarGroup>
+        </Collapsible>
+        {/* end of collapsible */}
+        {/* end of sidebar group */}
+
+
+        {/* sidebar group */}
+        <SidebarGroup>
+          <SidebarGroupLabel>Nested Items</SidebarGroupLabel>
+          
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link href="#">
+                      <Projector/>
+                      See All Projects
+                      </Link>
+                    </SidebarMenuButton>
+                    <SidebarMenuSub>
+                    </SidebarMenuSub>
+                  </SidebarMenuItem>
+
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link href="#">
+                      <Plus/>
+                      Add Projects
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <Link href="#">
+                      <Plus/>
+                      Edit Projects
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+
+
                 </SidebarMenu>
               </SidebarGroupContent>
         </SidebarGroup>
